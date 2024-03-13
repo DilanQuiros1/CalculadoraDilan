@@ -1,0 +1,85 @@
+﻿<Window x:Class="GraficaOP.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:GraficaOP"
+        
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="382" WindowStartupLocation="CenterScreen" WindowStyle="None">
+
+    <Grid>
+        <DockPanel>
+            <Menu DockPanel.Dock="Top" Padding="10">
+                <MenuItem Header="HEX" FontFamily="Arial Black" FontSize="18" BorderBrush="Black" Margin="58 0 0 0">
+                    <MenuItem x:Name="AppExit" Header="E_xit" HorizontalAlignment="Left" Width="140" Click="AppExit_Click"/>
+                </MenuItem>
+
+                <MenuItem Header="DEC" FontFamily="Arial Black" FontSize="18" Margin="10 0 0 0" Padding="5" BorderBrush="Black">
+                    <MenuItem x:Name="Options" Header="_Options" HorizontalAlignment="Left" Width="140"/>
+                </MenuItem>
+
+                <MenuItem Header="OCT" FontFamily="Arial Black" FontSize="18" Margin="10 0 0 0" Padding="5" BorderBrush="Black">
+                    <MenuItem x:Name="Options1" Header="_Options" HorizontalAlignment="Left" Width="140"/>
+                </MenuItem>
+
+                <MenuItem Header="BIN" FontFamily="Arial Black" FontSize="18" Margin="10 0 0 0" Padding="5" BorderBrush="Black">
+                    <MenuItem x:Name="Options2" Header="_Options" HorizontalAlignment="Left" Width="140"/>
+                </MenuItem>
+            </Menu>
+            <!-- Aquí puedes agregar el resto de tu contenido -->
+        </DockPanel>
+
+        <StackPanel  Margin="0,65,0,383" Background="#CCC5">
+            <Label Content="111111" Margin="10 10 0 0" Name="resul"/>
+        </StackPanel>
+
+        <StackPanel Margin="0,122,0,228"  Height="150" Background="#CCC">
+            <Label Content="HEX: 0" Margin="10 10 0 0" />
+            <Label Content="DEC: 0" Margin="10 10 0 0"/>
+            <Label Content="OCT: 0" Margin="10 10 0 0"/>
+            <Label Content="BIN: 0" Margin="10 10 0 0"/>
+        </StackPanel>
+
+        <StackPanel Margin="0,277,0,0"  Background="Black">
+
+            <!-- Primera fila de botones -->
+            <StackPanel Orientation="Horizontal" Margin="5 17 0 0">
+                <Button Content="A" Width="80" Margin="10 0 0 0" Height="40"/>
+                <Button Content="6" Width="80" Margin="10 0 0 0" Height="40"/>
+                <Button Content="7" Width="80" Margin="10 0 0 0" Height="40"/>
+                <Button Content="9" Width="80" Margin="10 0 0 0" Height="40"/>
+            </StackPanel>
+
+            <!-- Segunda fila de botones -->
+            <StackPanel Orientation="Horizontal" Margin="5 10 0 0">
+                <Button Content="B" Width="80" Margin="10 0 0 0" Height="40"/>
+                <Button Content="4" Width="80" Margin="10 0 0 0" Height="40"/>
+                <Button Content="5" Width="80" Margin="10 0 0 0" Height="40"/>
+                <Button Content="6" Width="80" Margin="10 0 0 0" Height="40"/>
+            </StackPanel>
+
+            <!-- Tercera fila de botones -->
+            <StackPanel Orientation="Horizontal" Margin="5 10 0 0">
+                <Button Content="C" Width="80" Margin="10 0 0 0" Height="40"/>
+                <Button Content="1" Width="80" Margin="10 0 0 0" Height="40"/>
+                <Button Content="2" Width="80" Margin="10 0 0 0" Height="40"/>
+                <Button Content="3" Width="80" Margin="10 0 0 0" Height="40"/>
+            </StackPanel>
+
+            <!-- Cuarta fila de botones -->
+            <StackPanel Orientation="Horizontal" Margin="5 10 0 0">
+                <Button Content="D" Width="80" Margin="10 0 0 0" Height="40"/>
+                <Button Content="F" Width="80" Margin="10 0 0 0" Height="40"/>
+                <Button Content="DE" Width="80" Margin="10 0 0 0" Height="40" Click="resultado"/>
+                <Button Content="CE" Width="80" Margin="10 0 0 0" Height="40" />
+            </StackPanel>
+  
+        </StackPanel>
+
+    </Grid>
+
+
+
+</Window>
