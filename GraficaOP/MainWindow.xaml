@@ -18,14 +18,15 @@
                 <MenuItem x:Name="btnOCT" Header="OCT" FontFamily="Arial Black" FontSize="18" Margin="10 0 0 0" Padding="5" BorderBrush="Black" Click="btnOCT_Click" />
 
                 <MenuItem x:Name="btnBIN" Header="BIN" FontFamily="Arial Black" FontSize="18" Margin="10 0 0 0" Padding="5" BorderBrush="Black" Click="btnBIN_Click" />
-
+                <MenuItem x:Name="btnPrue" Header="test" FontFamily="Arial Black" FontSize="18" Margin="10 0 0 0" Padding="5" BorderBrush="Black" Click="btnPruebasnum" />
                 
             </Menu>
             <!-- Aquí puedes agregar el resto de tu contenido -->
         </DockPanel>
 
         <StackPanel  Margin="0,65,0,383" Background="#CCC5">
-            <Label Content="111111" Margin="10 10 0 0" Name="resul"/>
+            <TextBox x:Name="numeroEntrada" Text="10111" Margin="10 10 0 0" />
+            
         </StackPanel>
 
         <StackPanel Margin="0,122,0,228"  Height="150" Background="#CCC">

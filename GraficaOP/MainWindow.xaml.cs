@@ -49,9 +49,9 @@ namespace GraficaOP
           
         }
 
-        public void BinarioDecimal()
+        public void BinarioDecimal(int binario)
         {
-            int binario = 1011011;        
+                
             int originalBinario = binario;
             int count = 0;
 
@@ -133,9 +133,11 @@ namespace GraficaOP
             btn2.IsEnabled = habilitar;
         }
 
-        private void btnPruebas(object sender, RoutedEventArgs e)
+
+        private void btnPruebasnum(object sender, RoutedEventArgs e)
         {
-            BinarioDecimal();
+           
+            BinarioDecimal(Convert.ToInt32(numeroEntrada.Text));
         }
     }
 }
