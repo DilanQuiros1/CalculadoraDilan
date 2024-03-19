@@ -7,26 +7,19 @@
         xmlns:local="clr-namespace:GraficaOP"
         
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="382" WindowStartupLocation="CenterScreen" WindowStyle="None">
+        Title="MainWindow" Height="510" Width="392" WindowStartupLocation="CenterScreen" WindowStyle="None">
 
     <Grid>
         <DockPanel>
             <Menu DockPanel.Dock="Top" Padding="10">
-                <MenuItem Header="HEX" FontFamily="Arial Black" FontSize="18" BorderBrush="Black" Margin="58 0 0 0">
-                    <MenuItem x:Name="AppExit" Header="E_xit" HorizontalAlignment="Left" Width="140" Click="AppExit_Click"/>
-                </MenuItem>
+                <MenuItem x:Name="btnHEX" Header="HEX" FontFamily="Arial Black" FontSize="18" BorderBrush="Black" Margin="58 0 0 0"   Click="hexadecimal"/>
 
-                <MenuItem Header="DEC" FontFamily="Arial Black" FontSize="18" Margin="10 0 0 0" Padding="5" BorderBrush="Black">
-                    <MenuItem x:Name="Options" Header="_Options" HorizontalAlignment="Left" Width="140"/>
-                </MenuItem>
+                <MenuItem x:Name="btnDEC" Header="DEC" FontFamily="Arial Black" FontSize="18" Margin="10 0 0 0" Padding="5" BorderBrush="Black" Click="btnDEC_Click" />
+                <MenuItem x:Name="btnOCT" Header="OCT" FontFamily="Arial Black" FontSize="18" Margin="10 0 0 0" Padding="5" BorderBrush="Black" Click="btnOCT_Click" />
 
-                <MenuItem Header="OCT" FontFamily="Arial Black" FontSize="18" Margin="10 0 0 0" Padding="5" BorderBrush="Black">
-                    <MenuItem x:Name="Options1" Header="_Options" HorizontalAlignment="Left" Width="140"/>
-                </MenuItem>
+                <MenuItem x:Name="btnBIN" Header="BIN" FontFamily="Arial Black" FontSize="18" Margin="10 0 0 0" Padding="5" BorderBrush="Black" Click="btnBIN_Click" />
 
-                <MenuItem Header="BIN" FontFamily="Arial Black" FontSize="18" Margin="10 0 0 0" Padding="5" BorderBrush="Black">
-                    <MenuItem x:Name="Options2" Header="_Options" HorizontalAlignment="Left" Width="140"/>
-                </MenuItem>
+                
             </Menu>
             <!-- Aquí puedes agregar el resto de tu contenido -->
         </DockPanel>
@@ -46,34 +39,34 @@
 
             <!-- Primera fila de botones -->
             <StackPanel Orientation="Horizontal" Margin="5 17 0 0">
-                <Button Content="A" Width="80" Margin="10 0 0 0" Height="40"/>
-                <Button Content="6" Width="80" Margin="10 0 0 0" Height="40"/>
-                <Button Content="7" Width="80" Margin="10 0 0 0" Height="40"/>
-                <Button Content="9" Width="80" Margin="10 0 0 0" Height="40"/>
+                <Button x:Name="btnA" Content="A" Width="80" Margin="10 0 0 0" Height="40"/>
+                <Button x:Name="btn7" Content="7" Width="80" Margin="10 0 0 0" Height="40"/>
+                <Button  x:Name="btn8" Content="8" Width="80" Margin="10 0 0 0" Height="40"/>
+                <Button  x:Name="btn9" Content="9" Width="80" Margin="10 0 0 0" Height="40"/>
             </StackPanel>
 
             <!-- Segunda fila de botones -->
             <StackPanel Orientation="Horizontal" Margin="5 10 0 0">
-                <Button Content="B" Width="80" Margin="10 0 0 0" Height="40"/>
-                <Button Content="4" Width="80" Margin="10 0 0 0" Height="40"/>
-                <Button Content="5" Width="80" Margin="10 0 0 0" Height="40"/>
-                <Button Content="6" Width="80" Margin="10 0 0 0" Height="40"/>
+                <Button  x:Name="btnB" Content="B" Width="80" Margin="10 0 0 0" Height="40"/>
+                <Button  x:Name="btn4" Content="4" Width="80" Margin="10 0 0 0" Height="40"/>
+                <Button  x:Name="btn5" Content="5" Width="80" Margin="10 0 0 0" Height="40"/>
+                <Button  x:Name="btn6" Content="6" Width="80" Margin="10 0 0 0" Height="40"/>
             </StackPanel>
 
             <!-- Tercera fila de botones -->
             <StackPanel Orientation="Horizontal" Margin="5 10 0 0">
-                <Button Content="C" Width="80" Margin="10 0 0 0" Height="40"/>
-                <Button Content="1" Width="80" Margin="10 0 0 0" Height="40"/>
-                <Button Content="2" Width="80" Margin="10 0 0 0" Height="40"/>
-                <Button Content="3" Width="80" Margin="10 0 0 0" Height="40"/>
+                <Button  x:Name="btnC" Content="C" Width="80" Margin="10 0 0 0" Height="40"/>
+                <Button  x:Name="btn1" Content="1" Width="80" Margin="10 0 0 0" Height="40"/>
+                <Button  x:Name="btn2" Content="2" Width="80" Margin="10 0 0 0" Height="40"/>
+                <Button  x:Name="btn3" Content="3" Width="80" Margin="10 0 0 0" Height="40"/>
             </StackPanel>
 
             <!-- Cuarta fila de botones -->
             <StackPanel Orientation="Horizontal" Margin="5 10 0 0">
-                <Button Content="D" Width="80" Margin="10 0 0 0" Height="40"/>
-                <Button Content="F" Width="80" Margin="10 0 0 0" Height="40"/>
-                <Button Content="DE" Width="80" Margin="10 0 0 0" Height="40" Click="resultado"/>
-                <Button Content="CE" Width="80" Margin="10 0 0 0" Height="40" />
+                <Button  x:Name="btnD" Content="D" Width="80" Margin="10 0 0 0" Height="40"/>
+                <Button  x:Name="btnE" Content="E" Width="80" Margin="10 0 0 0" Height="40"/>
+                <Button  x:Name="btnF" Content="F" Width="80" Margin="10 0 0 0" Height="40" />
+                <Button  x:Name="btn0" Content="0" Width="80" Margin="10 0 0 0" Height="40" />
             </StackPanel>
   
         </StackPanel>
