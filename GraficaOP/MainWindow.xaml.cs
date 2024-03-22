@@ -111,8 +111,8 @@ namespace GraficaOP
         {
 
             //c.BinarioDecimal(Convert.ToInt32(numeroEntrada.Text));
-            c.Octal_Decimal(Convert.ToInt32(numeroEntrada.Text));
-           
+            //c.Octal_Decimal(Convert.ToInt32(numeroEntrada.Text));
+            c.Hexadecimal_Decimal(numeroEntrada.Text);
         }
     }
 }
