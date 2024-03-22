@@ -20,9 +20,11 @@ namespace GraficaOP
     /// </summary>
     public partial class MainWindow : Window
     {
+        Converciones c;
         public MainWindow()
         {
             InitializeComponent();
+            c = new Converciones();
         }
 
         private void resultado(object sender, RoutedEventArgs e)
@@ -48,41 +50,11 @@ namespace GraficaOP
             }
           
         }
-
-        public void BinarioDecimal(int binario)
-        {
-                
-            int originalBinario = binario;
-            int count = 0;
-
-            while (binario > 0)
-            {
-                binario /= 10;
-                count++;
-            }//esta parte si use gtp porque solo sabia como hacelo con String y no solo int
-
-            int va =0;
-            binario = originalBinario;
-         
-            int suma = 0;
-            for (int i = 0; i < count; i++)
-            {
-               
-                int digito = binario % 10;//da un residuo que es el ultimo dijito 
-                          
-                    if(digito==1)
-                    {   
-                        Double a = Math.Pow(2, va); //elevado 2 a la posicion donde encuentra un dijito 1
-                        suma = suma + Convert.ToInt32(a);
-                       
-                    }
-
-                va++;
-                   
-                binario /= 10;
-            }
-            MessageBox.Show(suma.ToString());
-        }
+        //Binario a decimal listo
+        //octal a decimal listo
+        //binario a hexadecimal, luego dividir
+        //hexadecimal a decimal
+       
 
         private void hexadecimal(object sender, RoutedEventArgs e)
         {
@@ -133,11 +105,14 @@ namespace GraficaOP
             btn2.IsEnabled = habilitar;
         }
 
+       
 
         private void btnPruebasnum(object sender, RoutedEventArgs e)
         {
+
+            //c.BinarioDecimal(Convert.ToInt32(numeroEntrada.Text));
+            c.Octal_Decimal(Convert.ToInt32(numeroEntrada.Text));
            
-            BinarioDecimal(Convert.ToInt32(numeroEntrada.Text));
         }
     }
 }
