@@ -110,15 +110,19 @@ namespace GraficaOP
         private void btnPruebasnum(object sender, RoutedEventArgs e)
         {
 
-            //c.BinarioDecimal(Convert.ToInt32(numeroEntrada.Text));
-            //c.Octal_Decimal(Convert.ToInt32(numeroEntrada.Text));
-            //c.Hexadecimal_Decimal(numeroEntrada.Text);
-            c.Decimal_Binario(Convert.ToInt32(numeroEntrada.Text));
-            //c.Decimal_Octal(Convert.ToInt32(numeroEntrada.Text)); listo
-            //c.Decimal_Hexadecimal1(Convert.ToInt32(numeroEntrada.Text)); listo
+            //c.BinarioDecimal(Convert.ToInt32(numeroEntrada.Text)); //listo
+            //c.Octal_Decimal(Convert.ToInt32(numeroEntrada.Text)); //listo
+            //c.Hexadecimal_Decimal(numeroEntrada.Text); //listo
+            //c.Decimal_Binario(Convert.ToInt32(numeroEntrada.Text)); //listo
+            //c.Decimal_Octal(Convert.ToInt32(numeroEntrada.Text));// listo
+            //c.Decimal_Hexadecimal1(Convert.ToInt32(numeroEntrada.Text)); //listo
             //c.recorrer(Convert.ToInt32(numeroEntrada.Text));
-            //c.Binario_Octal(Convert.ToInt32(numeroEntrada.Text));
-            //c.Octal_Binario(Convert.ToInt32(numeroEntrada.Text));
+            //c.Binario_Octal(Convert.ToInt32(numeroEntrada.Text)); //listo
+            //c.Binario_Hexadecimal(Convert.ToInt32(numeroEntrada.Text)); //listo
+            // c.Octal_Binario(Convert.ToInt32(numeroEntrada.Text)); //listo
+            //c.Octal_Hexadecimal(Convert.ToInt32(numeroEntrada.Text)); //listo
+            //c.Hexadecimal_Octal(numeroEntrada.Text); //listo
+            c.Hexadecimal_Binario(numeroEntrada.Text);
         }
     }
 }
