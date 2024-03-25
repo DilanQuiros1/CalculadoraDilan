@@ -113,10 +113,12 @@ namespace GraficaOP
             //c.BinarioDecimal(Convert.ToInt32(numeroEntrada.Text));
             //c.Octal_Decimal(Convert.ToInt32(numeroEntrada.Text));
             //c.Hexadecimal_Decimal(numeroEntrada.Text);
-            //c.Decimal_Binario(Convert.ToInt32(numeroEntrada.Text));
-            //c.Decimal_Octal(Convert.ToInt32(numeroEntrada.Text));
-            //c.Decimal_Hexadecimal(Convert.ToInt32(numeroEntrada.Text));
-            c.Binario_Octal(Convert.ToInt32(numeroEntrada.Text));
+            c.Decimal_Binario(Convert.ToInt32(numeroEntrada.Text));
+            //c.Decimal_Octal(Convert.ToInt32(numeroEntrada.Text)); listo
+            //c.Decimal_Hexadecimal1(Convert.ToInt32(numeroEntrada.Text)); listo
+            //c.recorrer(Convert.ToInt32(numeroEntrada.Text));
+            //c.Binario_Octal(Convert.ToInt32(numeroEntrada.Text));
+            //c.Octal_Binario(Convert.ToInt32(numeroEntrada.Text));
         }
     }
 }
