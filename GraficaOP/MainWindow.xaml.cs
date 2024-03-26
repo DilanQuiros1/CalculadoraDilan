@@ -21,10 +21,12 @@ namespace GraficaOP
     public partial class MainWindow : Window
     {
         Converciones c;
+        List<Char> charList;
         public MainWindow()
         {
             InitializeComponent();
             c = new Converciones();
+            charList = new List<Char>();
         }
 
         private void resultado(object sender, RoutedEventArgs e)
@@ -124,5 +126,18 @@ namespace GraficaOP
             //c.Hexadecimal_Octal(numeroEntrada.Text); //listo
             c.Hexadecimal_Binario(numeroEntrada.Text);
         }
+
+        private void teclear(object sender, RoutedEventArgs e)
+        {
+            Button click = (Button) sender;
+            Char valor = click.Content.ToString()[0];//primer caracter del contenido del boton
+
+            Char[] acvalor = numeroEntrada.Text.ToCharArray();
+            Array.Resize(ref acvalor, acvalor.Length + 1);//agregar el valor al final del array
+            acvalor[acvalor.Length - 1] = valor;
+            numeroEntrada.Text = new string(acvalor);//trae todo el array
+          
+        }
+
     }
 }

@@ -25,7 +25,7 @@
         </DockPanel>
 
         <StackPanel  Margin="0,65,0,383" Background="#CCC5">
-            <TextBox x:Name="numeroEntrada" Text="10111" Margin="10 10 0 0" />
+            <TextBox x:Name="numeroEntrada"  Margin="10 10 0 0" />
             
         </StackPanel>
 
@@ -40,34 +40,34 @@
 
             <!-- Primera fila de botones -->
             <StackPanel Orientation="Horizontal" Margin="5 17 0 0">
-                <Button x:Name="btnA" Content="A" Width="80" Margin="10 0 0 0" Height="40"/>
-                <Button x:Name="btn7" Content="7" Width="80" Margin="10 0 0 0" Height="40"/>
-                <Button  x:Name="btn8" Content="8" Width="80" Margin="10 0 0 0" Height="40"/>
-                <Button  x:Name="btn9" Content="9" Width="80" Margin="10 0 0 0" Height="40"/>
+                <Button x:Name="btnA" Content="A" Width="80" Margin="10 0 0 0" Height="40" Click="teclear"/>
+                <Button x:Name="btn7" Content="7" Width="80" Margin="10 0 0 0" Height="40" Click="teclear"/>
+                <Button  x:Name="btn8" Content="8" Width="80" Margin="10 0 0 0" Height="40" Click="teclear"/>
+                <Button  x:Name="btn9" Content="9" Width="80" Margin="10 0 0 0" Height="40" Click="teclear"/>
             </StackPanel>
 
             <!-- Segunda fila de botones -->
             <StackPanel Orientation="Horizontal" Margin="5 10 0 0">
-                <Button  x:Name="btnB" Content="B" Width="80" Margin="10 0 0 0" Height="40"/>
-                <Button  x:Name="btn4" Content="4" Width="80" Margin="10 0 0 0" Height="40"/>
-                <Button  x:Name="btn5" Content="5" Width="80" Margin="10 0 0 0" Height="40"/>
-                <Button  x:Name="btn6" Content="6" Width="80" Margin="10 0 0 0" Height="40"/>
+                <Button  x:Name="btnB" Content="B" Width="80" Margin="10 0 0 0" Height="40" Click="teclear"/>
+                <Button  x:Name="btn4" Content="4" Width="80" Margin="10 0 0 0" Height="40" Click="teclear"/>
+                <Button  x:Name="btn5" Content="5" Width="80" Margin="10 0 0 0" Height="40" Click="teclear"/>
+                <Button  x:Name="btn6" Content="6" Width="80" Margin="10 0 0 0" Height="40" Click="teclear"/>
             </StackPanel>
 
             <!-- Tercera fila de botones -->
             <StackPanel Orientation="Horizontal" Margin="5 10 0 0">
-                <Button  x:Name="btnC" Content="C" Width="80" Margin="10 0 0 0" Height="40"/>
-                <Button  x:Name="btn1" Content="1" Width="80" Margin="10 0 0 0" Height="40"/>
-                <Button  x:Name="btn2" Content="2" Width="80" Margin="10 0 0 0" Height="40"/>
-                <Button  x:Name="btn3" Content="3" Width="80" Margin="10 0 0 0" Height="40"/>
+                <Button  x:Name="btnC" Content="C" Width="80" Margin="10 0 0 0" Height="40" Click="teclear"/>
+                <Button  x:Name="btn1" Content="1" Width="80" Margin="10 0 0 0" Height="40" Click="teclear"/>
+                <Button  x:Name="btn2" Content="2" Width="80" Margin="10 0 0 0" Height="40" Click="teclear"/>
+                <Button  x:Name="btn3" Content="3" Width="80" Margin="10 0 0 0" Height="40" Click="teclear"/>
             </StackPanel>
 
             <!-- Cuarta fila de botones -->
             <StackPanel Orientation="Horizontal" Margin="5 10 0 0">
-                <Button  x:Name="btnD" Content="D" Width="80" Margin="10 0 0 0" Height="40"/>
-                <Button  x:Name="btnE" Content="E" Width="80" Margin="10 0 0 0" Height="40"/>
-                <Button  x:Name="btnF" Content="F" Width="80" Margin="10 0 0 0" Height="40" />
-                <Button  x:Name="btn0" Content="0" Width="80" Margin="10 0 0 0" Height="40" />
+                <Button  x:Name="btnD" Content="D" Width="80" Margin="10 0 0 0" Height="40" Click="teclear"/>
+                <Button  x:Name="btnE" Content="E" Width="80" Margin="10 0 0 0" Height="40" Click="teclear"/>
+                <Button  x:Name="btnF" Content="F" Width="80" Margin="10 0 0 0" Height="40" Click="teclear" />
+                <Button  x:Name="btn0" Content="0" Width="80" Margin="10 0 0 0" Height="40"  Click="teclear"/>
             </StackPanel>
   
         </StackPanel>
