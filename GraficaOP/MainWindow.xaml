@@ -12,7 +12,7 @@
     <Grid>
         <DockPanel>
             <Menu DockPanel.Dock="Top" Padding="10">
-                <MenuItem x:Name="btnHEX" Header="HEX" FontFamily="Arial Black" FontSize="18" BorderBrush="Black" Margin="58 0 0 0"   Click="hexadecimal"/>
+                <MenuItem x:Name="btnHEX" Header="HEX" FontFamily="Arial Black" FontSize="18" BorderBrush="Black" Margin="58 0 0 0"   Click="hexadecimal" />
 
                 <MenuItem x:Name="btnDEC" Header="DEC" FontFamily="Arial Black" FontSize="18" Margin="10 0 0 0" Padding="5" BorderBrush="Black" Click="btnDEC_Click" />
                 <MenuItem x:Name="btnOCT" Header="OCT" FontFamily="Arial Black" FontSize="18" Margin="10 0 0 0" Padding="5" BorderBrush="Black" Click="btnOCT_Click" />

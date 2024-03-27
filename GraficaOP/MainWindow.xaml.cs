@@ -37,7 +37,7 @@ namespace GraficaOP
             
             c = new Converciones();
             operaciones = new Thread(realizarOperaciones);
-            btnHEX.Background = Brushes.AliceBlue;
+            btnDEC.Background = Brushes.Gray;
             operaciones.Start();
             ejecutador = true;
     
@@ -93,6 +93,28 @@ namespace GraficaOP
             deci = dec;
             oct = oc;
             bin = bi;
+
+            btnDEC.Background = Brushes.AliceBlue;
+            btnHEX.Background = Brushes.AliceBlue;
+            btnOCT.Background = Brushes.AliceBlue;
+            btnBIN.Background = Brushes.AliceBlue;
+       
+            if(hex)
+            {
+                btnHEX.Background = Brushes.Gray;
+            }
+            if(dec)
+            {
+                btnDEC.Background = Brushes.Gray;
+            }
+            if (oc)
+            {
+                btnOCT.Background = Brushes.Gray;
+            }
+            if(bi)
+            {
+                btnBIN.Background = Brushes.AliceBlue;
+            }
         }
 
         public void habilitarbtnHexadecimal(Boolean habilitar)
@@ -124,7 +146,13 @@ namespace GraficaOP
         public void vaciarTexto()
         {
             numeroEntrada.Text = "";
+            verBI.Text = "";
+            verDE.Text = "";
+            verHe.Text = "";
+            verOT.Text = "";
         }
+
+       
        
 
         private void btnPruebasnum(object sender, RoutedEventArgs e)
