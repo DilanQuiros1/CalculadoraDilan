@@ -40,10 +40,10 @@ namespace GraficaOP
             btnDEC.Background = Brushes.Gray;
             operaciones.Start();
             ejecutador = true;
-    
-            habilitarbtnBinarios(true);
+
             habilitarbtnHexadecimal(false);
-            habilitarbtnOctales(false);
+            habilitarbtnBinarios(true);
+            habilitarbtnOctales(true);
             charList = new List<Char>();
         }
 
@@ -66,6 +66,8 @@ namespace GraficaOP
         private void btnDEC_Click(object sender, RoutedEventArgs e)
         {
             habilitarbtnHexadecimal(false);
+            habilitarbtnBinarios(true);
+            habilitarbtnOctales(true);
             vaciarTexto();
             habilitarOperaciones(false, true, false, false);
         }
@@ -74,6 +76,7 @@ namespace GraficaOP
         {
             habilitarbtnOctales(false);
             habilitarbtnHexadecimal(false);
+            habilitarbtnBinarios(true);
             vaciarTexto();
             habilitarOperaciones(false, false, true, false);
         }
@@ -113,7 +116,7 @@ namespace GraficaOP
             }
             if(bi)
             {
-                btnBIN.Background = Brushes.AliceBlue;
+                btnBIN.Background = Brushes.Gray;
             }
         }
 
@@ -186,9 +189,24 @@ namespace GraficaOP
             Char valor = click.Content.ToString()[0];//primer caracter del contenido del boton
 
             Char[] acvalor = numeroEntrada.Text.ToCharArray();
-            Array.Resize(ref acvalor, acvalor.Length + 1);//agregar el valor al final del array
-            acvalor[acvalor.Length - 1] = valor;
-            numeroEntrada.Text = new string(acvalor);//trae todo el array
+            if (valor == 'X')
+            {
+                if(acvalor.Length > 0)
+                {
+                    Array.Resize(ref acvalor, acvalor.Length - 1);//agregar el valor al final del array
+                    numeroEntrada.Text = new string(acvalor);//trae todo el array
+                }
+            }
+            else
+            {
+                Array.Resize(ref acvalor, acvalor.Length + 1);//agregar el valor al final del array
+                acvalor[acvalor.Length - 1] = valor;
+                numeroEntrada.Text = new string(acvalor);//trae todo el array
+            }
+
+            
+            //acvalor[acvalor.Length - 1] = valor;
+           
            
         }
 
@@ -234,94 +252,22 @@ namespace GraficaOP
                     }
 
                 });
-                Thread.Sleep(300);
+                Thread.Sleep(100);
                
             }
-            MessageBox.Show("Finalizo");
+           
         }
 
 
         private void ejecutar(object sender, RoutedEventArgs e)
         {
 
-            ejecutador = false;
+            vaciarTexto();
 
         }
 
-
-        public void BinarioDecimal(int binario)
-        {
-
-            int originalBinario = binario;
-            int count = 0;
-
-            while (binario > 0)
-            {
-                binario /= 10;
-                count++;
-            }//esta parte si use gtp porque solo sabia como hacelo con String y no solo int
-
-            int va = 0;
-            binario = originalBinario;
-
-            int suma = 0;
-            for (int i = 0; i < count; i++)
-            {
-
-                int digito = binario % 10;//da un residuo que es el ultimo dijito 
-
-                if (digito == 1)
-                {
-                    Double a = Math.Pow(2, va); //elevado 2 a la posicion donde encuentra un dijito 1
-                    suma = suma + Convert.ToInt32(a);
-
-                }
-
-                va++;
-
-                binario /= 10;
-            }
-            // Actualizar el control de la interfaz de usuario desde el hilo principal
-            Application.Current.Dispatcher.Invoke(() =>
-            {
-                verDE.Text = suma.ToString();
-            });
-
-        }
 
       
-
-        public Char[] Decimal_Octal(int numero, TextBox texto)
-        {
-            int resul;
-            Char[] res = new char[16];
-            int contador = 0;
-
-            while (numero > 0)
-            {
-                resul = numero % 8;
-                numero /= 8;
-                res[contador] = (char)(resul + '0');
-                contador++;
-
-            }
-            Array.Reverse(res, 0, contador);
-            recorrer(res, contador, texto);
-
-
-            return res;
-
-        }
-
-        public void recorrer(char[] res, int indice, TextBox texto)
-        {
-            int suma = 0;
-            for (int i = 0; i < indice; i++)
-            {
-                suma = suma * 10 + (res[i] - '0'); // Convertir el carácter a su valor numérico y acumularlo
-            }
-            texto.Text = suma.ToString();
-        }
 
     }
 }

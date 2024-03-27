@@ -7,9 +7,13 @@
         xmlns:local="clr-namespace:GraficaOP"
         
         mc:Ignorable="d"
-        Title="MainWindow" Height="638" Width="392" WindowStartupLocation="CenterScreen" WindowStyle="None">
+        Title="MainWindow" Height="648" Width="392" WindowStartupLocation="CenterScreen" WindowStyle="None">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="638*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
         <DockPanel>
             <Menu DockPanel.Dock="Top" Padding="10">
                 <MenuItem x:Name="btnHEX" Header="HEX" FontFamily="Arial Black" FontSize="18" BorderBrush="Black" Margin="58 0 0 0"   Click="hexadecimal" />
@@ -18,8 +22,8 @@
                 <MenuItem x:Name="btnOCT" Header="OCT" FontFamily="Arial Black" FontSize="18" Margin="10 0 0 0" Padding="5" BorderBrush="Black" Click="btnOCT_Click" />
 
                 <MenuItem x:Name="btnBIN" Header="BIN" FontFamily="Arial Black" FontSize="18" Margin="10 0 0 0" Padding="5" BorderBrush="Black" Click="btnBIN_Click" />
-               
-                
+
+
             </Menu>
             <!-- Aquí puedes agregar el resto de tu contenido -->
         </DockPanel>
@@ -27,21 +31,21 @@
         <StackPanel  Margin="0,65,0,383" Background="#CCC5">
             <Label  Content="Numero a calcular" Margin="10 0 0 0" HorizontalAlignment="Center"/>
             <TextBox x:Name="numeroEntrada" Width="300" Padding="0" Margin="10 0 0 0" />
-            
+
         </StackPanel>
 
         <StackPanel Margin="0,127,0,150" Background="#CCC">
             <Label x:Name="VerH" Content="HEX:" Margin="10 10 0 0" HorizontalAlignment="Center"/>
-            <TextBox x:Name="verHe"  Margin="10 0 0 0"  Width="150" HorizontalAlignment="Center"/>
+            <TextBox x:Name="verHe"  Margin="10 0 0 0"  Width="180" HorizontalAlignment="Center"/>
             <Label Content="DEC:" Margin="10 10 0 0" HorizontalAlignment="Center"/>
-            <TextBox x:Name="verDE"  Margin="10 0 0 0"  Width="150" HorizontalAlignment="Center"/>
+            <TextBox x:Name="verDE"  Margin="10 0 0 0"  Width="180" HorizontalAlignment="Center"/>
             <Label Content="OCT:" Margin="10 10 0 0" HorizontalAlignment="Center"/>
-            <TextBox x:Name="verOT"  Margin="10 0 0 0"  Width="150" HorizontalAlignment="Center"/>
+            <TextBox x:Name="verOT"  Margin="10 0 0 0"  Width="180" HorizontalAlignment="Center"/>
             <Label Content="BIN:" Margin="10 10 0 0" HorizontalAlignment="Center"/>
-            <TextBox x:Name="verBI"  Margin="10 0 0 0" Width="150" HorizontalAlignment="Center"/>
+            <TextBox x:Name="verBI"  Margin="10 0 0 0" Width="180" HorizontalAlignment="Center"/>
         </StackPanel>
 
-        <StackPanel Margin="0,358,0,-19"  Background="Black">
+        <StackPanel Margin="0,358,0,-18"  Background="Black" Grid.RowSpan="2">
 
             <!-- Primera fila de botones -->
             <StackPanel Orientation="Horizontal" Margin="5 27 0 0">
