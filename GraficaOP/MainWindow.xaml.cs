@@ -24,17 +24,26 @@ namespace GraficaOP
         Converciones c;
         List<Char> charList;
         static bool ejecutador;
+        static Boolean hexade = false;
+        static Boolean oct = false;
+        static Boolean deci = true;
+        static Boolean bin = false;
 
         Thread operaciones;
 
         public MainWindow()
         {
             InitializeComponent();
-            habilitarbtnHexadecimal(false);
+            
             c = new Converciones();
             operaciones = new Thread(realizarOperaciones);
+            btnHEX.Background = Brushes.AliceBlue;
             operaciones.Start();
             ejecutador = true;
+    
+            habilitarbtnBinarios(true);
+            habilitarbtnHexadecimal(false);
+            habilitarbtnOctales(false);
             charList = new List<Char>();
         }
 
@@ -44,23 +53,29 @@ namespace GraficaOP
         }
 
        
-      
+
        
 
         private void hexadecimal(object sender, RoutedEventArgs e)
         {
             habilitarbtnHexadecimal(true);
+            vaciarTexto();
+            habilitarOperaciones(true, false, false, false);
         }
 
         private void btnDEC_Click(object sender, RoutedEventArgs e)
         {
             habilitarbtnHexadecimal(false);
+            vaciarTexto();
+            habilitarOperaciones(false, true, false, false);
         }
 
         private void btnOCT_Click(object sender, RoutedEventArgs e)
         {
             habilitarbtnOctales(false);
             habilitarbtnHexadecimal(false);
+            vaciarTexto();
+            habilitarOperaciones(false, false, true, false);
         }
 
         private void btnBIN_Click(object sender, RoutedEventArgs e)
@@ -68,6 +83,16 @@ namespace GraficaOP
             habilitarbtnBinarios(false);
             habilitarbtnOctales(false);
             habilitarbtnHexadecimal(false);
+            habilitarOperaciones(false, false, false, true);
+            vaciarTexto();
+        }
+
+        public void habilitarOperaciones(Boolean hex, Boolean dec, Boolean oc, Boolean bi)
+        {
+            hexade = hex;
+            deci = dec;
+            oct = oc;
+            bin = bi;
         }
 
         public void habilitarbtnHexadecimal(Boolean habilitar)
@@ -96,6 +121,10 @@ namespace GraficaOP
             btn2.IsEnabled = habilitar;
         }
 
+        public void vaciarTexto()
+        {
+            numeroEntrada.Text = "";
+        }
        
 
         private void btnPruebasnum(object sender, RoutedEventArgs e)
@@ -149,12 +178,31 @@ namespace GraficaOP
                     }
                     else
                     {
-                        //c.Binario_otras(Convert.ToInt32(numeroEntrada.Text), verDE, verOT, verHe);
-                        //c.Octal_otras(Convert.ToInt32(numeroEntrada.Text), verDE, verBI, verHe);
-                        //c.Hexadecimal_otras(numeroEntrada.Text, verDE, verBI, verOT);
-                        c.Decimal_Binario(Convert.ToInt32(numeroEntrada.Text), verBI);
-                        c.Decimal_Octal(Convert.ToInt32(numeroEntrada.Text), verOT);
-                        c.Decimal_Hexadecimal1(Convert.ToInt32(numeroEntrada.Text), verHe);
+                        if(hexade)
+                        { 
+                            c.Hexadecimal_otras(numeroEntrada.Text, verDE, verBI, verOT);
+                            verHe.Text = numeroEntrada.Text;
+                        }
+                        if (oct)
+                        {
+                            c.Octal_otras(Convert.ToInt32(numeroEntrada.Text), verDE, verBI, verHe);
+                            verOT.Text = numeroEntrada.Text;
+                        }
+                        if (deci)
+                        {
+                            c.Decimal_Binario(Convert.ToInt32(numeroEntrada.Text), verBI);
+                            c.Decimal_Octal(Convert.ToInt32(numeroEntrada.Text), verOT);
+                            c.Decimal_Hexadecimal1(Convert.ToInt32(numeroEntrada.Text), verHe);
+                            verDE.Text = numeroEntrada.Text;
+                        }
+                        if(bin)
+                        {
+                            c.Binario_otras(Convert.ToInt32(numeroEntrada.Text), verDE, verOT, verHe);
+                            verBI.Text = numeroEntrada.Text;
+                        }
+
+                      
+                        
                     }
 
                 });
