@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -22,10 +23,18 @@ namespace GraficaOP
     {
         Converciones c;
         List<Char> charList;
+        static bool ejecutador;
+
+        Thread operaciones;
+
         public MainWindow()
         {
             InitializeComponent();
+            habilitarbtnHexadecimal(false);
             c = new Converciones();
+            operaciones = new Thread(realizarOperaciones);
+            operaciones.Start();
+            ejecutador = true;
             charList = new List<Char>();
         }
 
@@ -34,28 +43,8 @@ namespace GraficaOP
           
         }
 
-        public void validador()
-        {
-            int binario = 11101;
-            string bina = binario.ToString();
-            int num = 10;
-            double elevadoAlCuadrado = Math.Pow(num, 2); // Elevarlo a la potencia 2
-            char[] numero = new char[5];
-            char[] numero2 = new char[5];        
-            for (char i = (char)0;i<numero.Length;i++)
-            {
-                if (numero[i] == 1)
-                {
-                    numero2[i] = numero[i];
-                    MessageBox.Show("numero" + numero[i]);
-                }
-            }
-          
-        }
-        //Binario a decimal listo
-        //octal a decimal listo
-        //binario a hexadecimal, luego dividir
-        //hexadecimal a decimal
+       
+      
        
 
         private void hexadecimal(object sender, RoutedEventArgs e)
@@ -113,18 +102,25 @@ namespace GraficaOP
         {
 
             //c.BinarioDecimal(Convert.ToInt32(numeroEntrada.Text)); //listo
-            //c.Octal_Decimal(Convert.ToInt32(numeroEntrada.Text)); //listo
-            //c.Hexadecimal_Decimal(numeroEntrada.Text); //listo
+            //c.Binario_Octal(Convert.ToInt32(numeroEntrada.Text)); //listo
+            //c.Binario_Hexadecimal(Convert.ToInt32(numeroEntrada.Text)); //listo
+
             //c.Decimal_Binario(Convert.ToInt32(numeroEntrada.Text)); //listo
             //c.Decimal_Octal(Convert.ToInt32(numeroEntrada.Text));// listo
             //c.Decimal_Hexadecimal1(Convert.ToInt32(numeroEntrada.Text)); //listo
-            //c.recorrer(Convert.ToInt32(numeroEntrada.Text));
-            //c.Binario_Octal(Convert.ToInt32(numeroEntrada.Text)); //listo
-            //c.Binario_Hexadecimal(Convert.ToInt32(numeroEntrada.Text)); //listo
+
+            //c.Octal_Decimal(Convert.ToInt32(numeroEntrada.Text)); //listo
             // c.Octal_Binario(Convert.ToInt32(numeroEntrada.Text)); //listo
             //c.Octal_Hexadecimal(Convert.ToInt32(numeroEntrada.Text)); //listo
+
+            //c.Hexadecimal_Decimal(numeroEntrada.Text); //listo
             //c.Hexadecimal_Octal(numeroEntrada.Text); //listo
-            c.Hexadecimal_Binario(numeroEntrada.Text);
+            //c.Hexadecimal_Binario(numeroEntrada.Text);
+
+            //c.recorrer(Convert.ToInt32(numeroEntrada.Text));
+
+
+
         }
 
         private void teclear(object sender, RoutedEventArgs e)
@@ -136,7 +132,119 @@ namespace GraficaOP
             Array.Resize(ref acvalor, acvalor.Length + 1);//agregar el valor al final del array
             acvalor[acvalor.Length - 1] = valor;
             numeroEntrada.Text = new string(acvalor);//trae todo el array
-          
+           
+        }
+
+
+        public void realizarOperaciones()
+        {
+            while (ejecutador)
+            {
+                // Actualizar el control de la interfaz de usuario desde el hilo principal
+                Application.Current.Dispatcher.Invoke(() =>
+                {
+                    if(numeroEntrada.Text.Equals(""))
+                    {
+
+                    }
+                    else
+                    {
+                        //c.Binario_otras(Convert.ToInt32(numeroEntrada.Text), verDE, verOT, verHe);
+                        //c.Octal_otras(Convert.ToInt32(numeroEntrada.Text), verDE, verBI, verHe);
+                        //c.Hexadecimal_otras(numeroEntrada.Text, verDE, verBI, verOT);
+                        c.Decimal_Binario(Convert.ToInt32(numeroEntrada.Text), verBI);
+                        c.Decimal_Octal(Convert.ToInt32(numeroEntrada.Text), verOT);
+                        c.Decimal_Hexadecimal1(Convert.ToInt32(numeroEntrada.Text), verHe);
+                    }
+
+                });
+                Thread.Sleep(300);
+               
+            }
+            MessageBox.Show("Finalizo");
+        }
+
+
+        private void ejecutar(object sender, RoutedEventArgs e)
+        {
+
+            ejecutador = false;
+
+        }
+
+
+        public void BinarioDecimal(int binario)
+        {
+
+            int originalBinario = binario;
+            int count = 0;
+
+            while (binario > 0)
+            {
+                binario /= 10;
+                count++;
+            }//esta parte si use gtp porque solo sabia como hacelo con String y no solo int
+
+            int va = 0;
+            binario = originalBinario;
+
+            int suma = 0;
+            for (int i = 0; i < count; i++)
+            {
+
+                int digito = binario % 10;//da un residuo que es el ultimo dijito 
+
+                if (digito == 1)
+                {
+                    Double a = Math.Pow(2, va); //elevado 2 a la posicion donde encuentra un dijito 1
+                    suma = suma + Convert.ToInt32(a);
+
+                }
+
+                va++;
+
+                binario /= 10;
+            }
+            // Actualizar el control de la interfaz de usuario desde el hilo principal
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                verDE.Text = suma.ToString();
+            });
+
+        }
+
+      
+
+        public Char[] Decimal_Octal(int numero, TextBox texto)
+        {
+            int resul;
+            Char[] res = new char[16];
+            int contador = 0;
+
+            while (numero > 0)
+            {
+                resul = numero % 8;
+                numero /= 8;
+                res[contador] = (char)(resul + '0');
+                contador++;
+
+            }
+            Array.Reverse(res, 0, contador);
+            recorrer(res, contador, texto);
+
+
+            return res;
+
+        }
+
+        public void recorrer(char[] res, int indice, TextBox texto)
+        {
+            int suma = 0;
+            for (int i = 0; i < indice; i++)
+            {
+                suma = suma * 10 + (res[i] - '0'); // Convertir el carácter a su valor numérico y acumularlo
+            }
+            texto.Text = suma.ToString();
         }
 
     }
